@@ -1,5 +1,5 @@
 terraform {
-  source = "../../../terraform-modules/kubernetes-multicloud"
+  source = "git::https://github.com/gborgogno/terraform-modules.git//kubernetes-multicloud?ref=main"
 }
 
 inputs = {
