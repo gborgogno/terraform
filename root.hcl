@@ -3,3 +3,9 @@ locals {
     Project = "Devops"
   }
 }
+
+
+
+inputs = {
+  common_tags = local.common_tags
+}
