@@ -21,3 +21,25 @@ inputs = {
     }
   }
 }
+
+# Dependência no módulo do cluster para pegar o caminho do kubeconfig
+dependency "cluster" {
+  config_path = "../cluster"
+}
+
+# Gera um provider.tf usando o kubeconfig do cluster (gerado pelo módulo de cluster)
+generate "provider" {
+  path      = "provider.tf"
+  if_exists = "overwrite"
+  contents  = <<EOF
+provider "kubernetes" {
+  config_path = "${dependency.cluster.outputs.kubeconfig_path}"
+}
+
+provider "helm" {
+  kubernetes {
+    config_path = "${dependency.cluster.outputs.kubeconfig_path}"
+  }
+}
+EOF
+}

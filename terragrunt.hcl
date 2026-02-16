@@ -1,6 +1,5 @@
 locals {
-  project        = "Devops"
-  default_region = "Onprem"
-  default_env    = "dev"
+  common_tags = {
+    Project = "Devops"
+  }
 }
-

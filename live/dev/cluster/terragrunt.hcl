@@ -8,13 +8,15 @@ locals {
 }
 
 terraform {
-  source = "git::ssh://git@github.com/Devops-Solutions-SC-LTDA/terraform-modules.git//kubernetes-cluster?ref=main"
+  source = "../../../../terraform-modules/kubernetes-cluster"
 }
 
 inputs = {
-  kubernetes_version = "1.33.0"
-  pod_network_cidr   = "10.244.0.0/16"
-  node_name          = "dev-wsl-node"
-  kubeconfig_path    = "~/.kube/config"
+  cluster_name        = "dev-minikube"
+  kubernetes_version  = "1.33.0"
+  cpus                = 2
+  memory              = 2048
+  driver              = "docker"
+  kubeconfig_path     = "~/.kube/config"
 }
     
