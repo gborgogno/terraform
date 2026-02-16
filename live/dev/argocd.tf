@@ -1,8 +1,6 @@
 module "argocd" {
     source = "git::ssh://git@github.com/Devops-Solutions-SC-LTDA/terraform-modules//argocd?ref=main"
 
-    # ensure cluster is created before argocd install
-    depends_on = [module.cluster]
 
     release_name  = "argocd"
     namespace     = "argocd"
