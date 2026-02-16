@@ -1,5 +1,5 @@
 module "cluster" {
-  source = "../../../terraform-modules/kubernetes-cluster"
+  source = "git::ssh://git@github.com/Devops-Solutions-SC-LTDA/terraform-modules//kubernetes-cluster?ref=main"
 
   cluster_name       = "dev-minikube"
   kubernetes_version = "1.33.0"
