@@ -1,12 +1,12 @@
 module "argocd" {
     source = "git::https://github.com/Devops-Solutions-SC/terraform-modules//argocd?ref=main"
 
-    release_name   = "argocd"
-    namespace      = "argocd"
-    chart_version  = "9.4.2" # Verifique se esta versão é do chart ou da app, a atual do chart é 7.x
-    repository_url = "https://argoproj.github.io/argo-helm"
+    release_name   = var.argocd_release_name
+    namespace      = var.argocd_namespace
+    chart_version  = var.argocd_chart_version # Verifique se esta versão é do chart ou da app
+    repository_url = var.argocd_repository_url
 
-    values = yamldecode(<<YAML
+    values = yamldecode(var.argocd_values_yaml != "" ? var.argocd_values_yaml : <<YAML
 nameOverride: argocd
 fullnameOverride: ""
 createClusterRoles: true
@@ -53,6 +53,6 @@ server:
     path: /
     pathType: Prefix
     tls: true
-YAML
-)
+  YAML
+    )
 }

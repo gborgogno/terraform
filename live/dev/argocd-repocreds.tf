@@ -1,12 +1,12 @@
-module "repo_creds_example" {
+module "argocd_repo_creds" {
   source = "git::https://github.com/Devops-Solutions-SC/terraform-modules//argocd-repocreds?ref=main"
 
-  name       = "example-repo-creds"
-  namespace  = "argocd"
-  repo_url   = "https://github.com/Devops-Solutions-SC/argocd.git"
+  name       = var.repo_creds_name
+  namespace  = var.argocd_namespace
+  repo_url   = var.repo_url
   # Provide either username/password for HTTPS or ssh_private_key for SSH access
-  username   = ""
-  password   = ""
-  ssh_private_key = ""
+  username   = var.repo_creds_username
+  password   = var.repo_creds_password
+  ssh_private_key = var.repo_creds_ssh_private_key
 }
     
