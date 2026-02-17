@@ -1,5 +1,5 @@
 module "argocd" {
-    source = "git::ssh://git@github.com/Devops-Solutions-SC-LTDA/terraform-modules//argocd?ref=main"
+    source = "git::https://github.com/Devops-Solutions-SC-LTDA/terraform-modules//argocd?ref=main"
 
 
     release_name  = "argocd"
