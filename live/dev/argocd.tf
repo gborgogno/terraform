@@ -6,34 +6,53 @@ module "argocd" {
     chart_version  = "9.4.2" # Verifique se esta versão é do chart ou da app, a atual do chart é 7.x
     repository_url = "https://argoproj.github.io/argo-helm"
 
-    values = {
-        server = {
-            service = {
-                type = "ClusterIP"
-            }
-            ingress = {
-                enabled          = true
-                ingressClassName = "nginx"
-                # No Argo CD, hosts é uma lista de strings simples
-                hosts            = ["argocd.devops-sc.com"]
-                paths            = ["/"]
-                pathType         = "Prefix"
-                
-                # Configuração de TLS
-                tls = [
-                    {
-                        secretName = "argocd-tls"
-                        hosts      = ["argocd.devops-sc.com"]
-                    }
-                ]
-                
-                # Opcional: Anotações úteis para NGINX
-                annotations = {
-                    "kubernetes.io/ingress.class"                    = "nginx"
-                    "nginx.ingress.kubernetes.io/ssl-passthrough"    = "true"
-                    "nginx.ingress.kubernetes.io/backend-protocol"   = "HTTPS"
-                }
-            }
-        }
-    }
+    values = yamldecode(<<YAML
+nameOverride: argocd
+fullnameOverride: ""
+createClusterRoles: true
+
+crds:
+  install: true
+  keep: true
+
+global:
+  domain: argocd.devops-sc.com
+  image:
+    repository: quay.io/argoproj/argocd
+    tag: ""
+    imagePullPolicy: IfNotPresent
+
+configs:
+  cm:
+    create: true
+    application.instanceLabelKey: argocd.argoproj.io/instance
+    admin:
+      enabled: true
+  params:
+    create: true
+  rbac:
+    create: true
+
+dex:
+  enabled: true
+  image:
+    repository: ghcr.io/dexidp/dex
+    tag: v2.44.0
+
+redis:
+  enabled: true
+  image:
+    repository: ecr-public.aws.com/docker/library/redis
+    tag: 8.2.3-alpine
+
+server:
+  ingress:
+    enabled: true
+    ingressClassName: traefik
+    hostname: argocd.devops-sc.com
+    path: /
+    pathType: Prefix
+    tls: true
+YAML
+)
 }
