@@ -8,3 +8,7 @@ provider "helm" {
     config_path = "~/.kube/config"
   }
 }
+
+provider "aws" {
+  region  = "sa-east-1"
+}
