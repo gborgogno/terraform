@@ -25,7 +25,7 @@ YAML
 app_namespace = "argocd"
 project_name = "root-project"
 project_desc = "Root project for managed applications"
-repo_url = "git@github.com:Devops-Solutions-SC/argocd.git"
+repo_url = "https://github.com/Devops-Solutions-SC/argocd.git"
 application_name = "root-application"
 application_path = "apps-of-apps/"
 target_revision = "main"

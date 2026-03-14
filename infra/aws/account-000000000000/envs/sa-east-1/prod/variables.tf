@@ -78,26 +78,26 @@ variable "automated_self_heal" {
 }
 
 #Repo creds inputs
-variable "repo_creds_name" {
-  description = "Name for the repo credentials secret"
-  type        = string
-  default     = "argocd-repo-creds"
-}
+# variable "repo_creds_name" {
+#   description = "Name for the repo credentials secret"
+#   type        = string
+#   default     = "argocd-repo-creds"
+# }
 
-variable "repo_creds_username" {
-  description = "Repo username (if using HTTPS auth)"
-  type        = string
-}
+# variable "repo_creds_username" {
+#   description = "Repo username (if using HTTPS auth)"
+#   type        = string
+# }
 
-variable "repo_creds_password" {
-  description = "Repo password (if using HTTPS auth)"
-  type        = string
-  sensitive   = true
-}
+# variable "repo_creds_password" {
+#   description = "Repo password (if using HTTPS auth)"
+#   type        = string
+#   sensitive   = true
+# }
 
-variable "repo_creds_ssh_private_key" {
-  description = "SSH private key content for repo access"
-  type        = string
-  sensitive   = true
+# variable "repo_creds_ssh_private_key" {
+#   description = "SSH private key content for repo access"
+#   type        = string
+#   sensitive   = true
 
-}
+# }
