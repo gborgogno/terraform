@@ -4,35 +4,10 @@ variable "kubeconfig_path" {
   default     = "~/.kube/config"
 }
 
-# ArgoCD Helm module inputs
-variable "argocd_release_name" {
-  description = "Helm release name for ArgoCD"
-  type        = string
-  default     = "argocd"
-}
-
 variable "argocd_namespace" {
   description = "Namespace where ArgoCD will be installed"
   type        = string
   default     = "argocd"
-}
-
-variable "argocd_chart_version" {
-  description = "Chart version for ArgoCD (empty = latest)"
-  type        = string
-  default     = "9.4.2"
-}
-
-variable "argocd_repository_url" {
-  description = "Helm repository URL for ArgoCD chart"
-  type        = string
-  default     = "https://argoproj.github.io/argo-helm"
-}
-
-variable "argocd_values_yaml" {
-  description = "YAML string with ArgoCD chart values (passed through yamldecode)"
-  type        = string
-  default     = ""
 }
 
 # Root Application / AppProject inputs
@@ -102,7 +77,7 @@ variable "automated_self_heal" {
   default     = true
 }
 
-# Repo creds inputs
+#Repo creds inputs
 variable "repo_creds_name" {
   description = "Name for the repo credentials secret"
   type        = string

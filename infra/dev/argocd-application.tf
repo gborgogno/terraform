@@ -13,4 +13,6 @@ module "argocd_root_application" {
 
   automated_prune     = var.automated_prune
   automated_self_heal = var.automated_self_heal
+
+
 }
