@@ -34,3 +34,14 @@ variable "argocd_values_yaml" {
   type        = string
   default     = ""
 }
+
+variable "github_runner_github_config_url" {
+  type = string
+  description = "GitHub repo or org URL for runner set, e.g. https://github.com/ORG/REPO"
+}
+
+variable "github_runner_pat" {
+  type = string
+  description = "GitHub Personal Access Token for registering runners"
+  sensitive = true
+}
