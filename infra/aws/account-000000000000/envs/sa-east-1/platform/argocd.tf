@@ -16,7 +16,7 @@ crds:
   keep: true
 
 global:
-  domain: argocd.devops-sc.com
+  domain: argocd.devopslabsolutions.com
   image:
     repository: quay.io/argoproj/argocd
     tag: ""
@@ -49,7 +49,7 @@ server:
   ingress:
     enabled: true
     ingressClassName: traefik
-    hostname: argocd.devops-sc.com
+    hostname: argocd.devopslabsolutions.com
     path: /
     pathType: Prefix
     tls: true
