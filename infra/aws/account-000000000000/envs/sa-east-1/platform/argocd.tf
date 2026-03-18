@@ -46,9 +46,13 @@ redis:
     tag: 8.2.3-alpine
 
 server:
+  insecure: true
   ingress:
     enabled: true
     ingressClassName: traefik
+    annotations:
+      traefik.ingress.kubernetes.io/router.entrypoints: web
+
     hostname: argocd.devopslabsolutions.com
     path: /
     pathType: Prefix
