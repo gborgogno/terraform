@@ -1,5 +1,5 @@
 module "argocd" {
-    source = "git::https://github.com/gborgogno/terraform-modules//argocd?ref=main"
+    source = "git::https://github.com/Devops-Solutions-SC/terraform-modules//argocd?ref=main"
 
     release_name   = var.argocd_release_name
     namespace      = var.argocd_namespace

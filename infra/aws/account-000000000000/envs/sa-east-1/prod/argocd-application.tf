@@ -1,5 +1,5 @@
 module "argocd_root_application" {
-  source = "git::https://github.com/gborgogno/terraform-modules//argocd-application?ref=main"
+  source = "git::https://github.com/Devops-Solutions-SC/terraform-modules//argocd-application?ref=main"
 
   namespace        = var.app_namespace
   project_name     = var.project_name
