@@ -32,7 +32,7 @@ variable "project_desc" {
 variable "repo_url" {
   description = "Repository URL for the Application source"
   type        = string
-  default     = "https://github.com/Devops-Solutions-SC/argocd.git"
+  default     = "https://github.com/gborgogno/argocd.git"
 }
 
 variable "application_name" {

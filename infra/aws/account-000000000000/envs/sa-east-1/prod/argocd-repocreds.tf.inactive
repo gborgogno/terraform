@@ -1,5 +1,5 @@
 module "argocd_repo_creds" {
-  source = "git::https://github.com/Devops-Solutions-SC/terraform-modules//argocd-repocreds?ref=main"
+  source = "git::https://github.com/gborgogno/terraform-modules//argocd-repocreds?ref=main"
 
   name       = var.repo_creds_name
   namespace  = var.argocd_namespace
